@@ -29,7 +29,7 @@ k\*k,k\*n。 第一个矩阵表示文档与潜在语义的关系；第二个矩�
 3.5 LDA和PLSA比较。 先验参数为0的LDA就是PLSA， 数据量特别大时两者结果无限接近。 
      LDA的优势：通过先验参数的设置，LDA在数据量比较小的时候效果比PLSA更好；在有新的数据产生时，LDA不需要重新推导（在线模型）。
           
-###二.LDA的gibbs采样
+### 二.LDA的gibbs采样
 https://www.cnblogs.com/gasongjian/p/7631978.html
 
 1. 输入：文档集合， 参数 k，alpha，beta，niters； 输出：文档-主题的分布矩阵，主题-单词的分布矩阵。
@@ -243,4 +243,5 @@ private int sampling(int m, int n) {
 ```
 
 https://www.zhihu.com/question/32286630?sort=created
+
 http://wenda.chinahadoop.cn/question/4544
