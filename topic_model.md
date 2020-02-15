@@ -26,12 +26,11 @@ k\*k,k\*n。 第一个矩阵表示文档与潜在语义的关系；第二个矩�
 3.4 LDA( Latent Dirichlet Allocation) , 2003年提出， 在PLSA的基础上加入dirichlet分布作为多项分布先验分布，引入新的
 先验超参数alpha和beta。求解方法有Gibbs采样，变分推断等。
 
-3.5 LDA和PLSA比较。 先验参数为0的LDA就是PLSA， 数据量特别大两者结果无限接近。 
+3.5 LDA和PLSA比较。 先验参数为0的LDA就是PLSA， 数据量特别大时两者结果无限接近。 
      LDA的优势：通过先验参数的设置，LDA在数据量比较小的时候效果比PLSA更好；在有新的数据产生时，LDA不需要重新推导（在线模型）。
           
 ###二.LDA的gibbs采样
-![](./asserts/gibbs.png)
-
+https://www.cnblogs.com/gasongjian/p/7631978.html
 
 1. 输入：文档集合， 参数 k，alpha，beta，niters； 输出：文档-主题的分布矩阵，主题-单词的分布矩阵。
 2. 核心代码实现：
@@ -206,16 +205,16 @@ private int sampling(int m, int n) {
 
 
 ### 三.困惑度perplexity 
-   ![](./asserts/perplexity.png)
+ ![](https://upload-images.jianshu.io/upload_images/14961220-2333e1c2be77982a.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240)
 其中w代表文章d中一个特定单词，N代表语料库所有的单词总数。
 每一个单词的概率可以根据主题模型参数theta和phi计算求得：
-![](./asserts/pw.png)。
+![](https://upload-images.jianshu.io/upload_images/14961220-a82611ab74d5eca6.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240)。
 
 
 
 
 做一些简单的数学变换，可以看出其等价于给定模型的参数，各个单词产生概率的几何平均数的倒数。 类似频率派的极大似然估计的思想，单词产生的平均概率越大，模型的困惑度越低，模型越好。
-![](./asserts/webwxgetmsgimg.jpeg)
+![](https://upload-images.jianshu.io/upload_images/14961220-84f7b8771c57e2e1.jpeg?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240)
 
 
 对应java代码
@@ -243,3 +242,5 @@ private int sampling(int m, int n) {
 
 ```
 
+https://www.zhihu.com/question/32286630?sort=created
+http://wenda.chinahadoop.cn/question/4544
